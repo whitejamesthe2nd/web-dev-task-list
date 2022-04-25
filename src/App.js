@@ -9,6 +9,7 @@ function App() {
   const todoNameRef = useRef();
 
   useEffect(()=>{
+    // Local Storage is not persisiting after refreshing the page can't seem to find out why
     const storedTodos = JSON.parse(localStorage.getItem(localStorageKey));
     console.log(storedTodos);
     if(storedTodos) setTodos(storedTodos)
@@ -16,6 +17,7 @@ function App() {
 
   useEffect( ()=>{
     localStorage.setItem(localStorageKey, JSON.stringify(todos));
+    // testing a thing I found on stacl overflow
     let test = localStorage.getItem(localStorageKey);
   }, [todos])
 
